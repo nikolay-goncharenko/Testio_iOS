@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignInViewController.swift
 //  Testio
 //
 //  Created by Nick Goncharenko on 24.11.2025.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class LoginViewController: BaseViewController {
+final class SignInViewController: BaseViewController {
     
-    private let viewModel: LoginViewModel
+    private let viewModel: SignInViewModel
     
-    init(viewModel: LoginViewModel) {
+    init(viewModel: SignInViewModel) {
         self.viewModel = viewModel
         super.init()
     }

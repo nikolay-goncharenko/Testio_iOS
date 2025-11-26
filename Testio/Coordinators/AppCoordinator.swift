@@ -21,6 +21,6 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     func openLoginScreen() {
-        router.openAsRoot(module: LoginModule())
+        router.openAsRoot(module: SignInModule())
     }
 }

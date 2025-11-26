@@ -10,7 +10,23 @@
 		CC76F5B02ED4ED3F004462D3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CC76F5AF2ED4ED3F004462D3 /* SnapKit */; };
 		CC76F5B32ED4ED71004462D3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CC76F5B22ED4ED71004462D3 /* Alamofire */; };
 		CC76F62B2ED5048B004462D3 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = CC76F62A2ED5048B004462D3 /* RswiftLibrary */; };
+		CC76F6CD2ED78E4B004462D3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC76F6CC2ED78E4B004462D3 /* RealmSwift */; };
+		CC76F6CF2ED78ED6004462D3 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC76F6CC2ED78E4B004462D3 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CC76F6D02ED78ED6004462D3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CC76F6CF2ED78ED6004462D3 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CC76F5922ED4E228004462D3 /* Testio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC76F6CD2ED78E4B004462D3 /* RealmSwift in Frameworks */,
 				CC76F5B02ED4ED3F004462D3 /* SnapKit in Frameworks */,
 				CC76F5B32ED4ED71004462D3 /* Alamofire in Frameworks */,
 				CC76F62B2ED5048B004462D3 /* RswiftLibrary in Frameworks */,
@@ -77,6 +94,7 @@
 				CC76F58E2ED4E228004462D3 /* Sources */,
 				CC76F58F2ED4E228004462D3 /* Frameworks */,
 				CC76F5902ED4E228004462D3 /* Resources */,
+				CC76F6D02ED78ED6004462D3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -91,6 +109,7 @@
 				CC76F5AF2ED4ED3F004462D3 /* SnapKit */,
 				CC76F5B22ED4ED71004462D3 /* Alamofire */,
 				CC76F62A2ED5048B004462D3 /* RswiftLibrary */,
+				CC76F6CC2ED78E4B004462D3 /* RealmSwift */,
 			);
 			productName = Testio;
 			productReference = CC76F5922ED4E228004462D3 /* Testio.app */;
@@ -124,6 +143,7 @@
 				CC76F5AE2ED4ED3F004462D3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CC76F5B12ED4ED71004462D3 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CC76F6292ED5048B004462D3 /* XCRemoteSwiftPackageReference "R.swift" */,
+				CC76F6CB2ED78E4B004462D3 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CC76F5932ED4E228004462D3 /* Products */;
@@ -396,6 +416,14 @@
 				minimumVersion = 7.8.0;
 			};
 		};
+		CC76F6CB2ED78E4B004462D3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.54.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -418,6 +446,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC76F6292ED5048B004462D3 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		CC76F6CC2ED78E4B004462D3 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC76F6CB2ED78E4B004462D3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
