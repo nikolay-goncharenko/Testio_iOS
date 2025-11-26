@@ -1,0 +1,88 @@
+# =========================
+# Xcode / Swift / iOS
+# =========================
+
+# User settings
+xcuserdata/
+
+# Compatibility with Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
+# Compatibility with Xcode 3 and earlier
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# Other
+*.xcuserstate
+*.DS_Store
+
+# Obj-C / Swift specific
+*.hmap
+
+# App packaging
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+Packages/
+Package.pins
+Package.resolved
+.build/
+.swiftpm
+
+# CocoaPods
+Pods/
+*.generated.swift
+
+# Carthage
+Carthage/Checkouts
+Carthage/Build/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/README.md
+
+# Code Injection (Injection for Xcode)
+iOSInjectionProject/
+
+# Xcode project patch / workspace settings
+*.xcodeproj/*
+# leave project.pbxproj and xcshareddata
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/xcshareddata/**
+!*.xcodeproj/xcshareddata/xcschemes/**
+
+# leave workspace contents
+!*.xcworkspace/contents.xcworkspacedata
+
+# ignore other workspaces
+*.xcworkspace
+
+# Xcode workspace shared settings
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# Coverage / gcno
+/*.gcno
