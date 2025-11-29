@@ -13,6 +13,7 @@ final class AppCoordinator: BaseCoordinator {
     
     init(navigationController: UINavigationController) {
         self.router = Router(navigationController: navigationController)
+        navigationController.navigationBar.isHidden = true
     }
     
     override func start() {
@@ -22,5 +23,6 @@ final class AppCoordinator: BaseCoordinator {
     
     func openLoginScreen() {
         router.openAsRoot(module: SignInModule())
+//        router.openAsRoot(module: ServerListModule())
     }
 }

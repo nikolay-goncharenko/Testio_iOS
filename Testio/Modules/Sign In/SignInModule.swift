@@ -9,15 +9,15 @@ import Foundation
 
 final class SignInModule: BaseModule {
     
-    let viewModel: SignInViewModel
-    let view: SignInViewController
+    private let viewModel: SignInViewModel
+    private let view: SignInViewController
     
     init() {
         viewModel = SignInViewModel()
         view = SignInViewController(viewModel: viewModel)
     }
     
-    func viewController() -> BaseViewController {
+    internal func viewController() -> BaseViewController {
         return view
     }
 }
