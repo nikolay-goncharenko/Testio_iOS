@@ -9,6 +9,10 @@ import UIKit
 
 final class BottomActionSheet: BaseViewController {
     
+    // MARK: - Private closures
+    private var byDistance: (() -> Void)?
+    private var byServer: (() -> Void)?
+    
     // MARK: - Components definition
     private let dimmedView = UIView()
         .background(color: .black)
@@ -50,6 +54,17 @@ final class BottomActionSheet: BaseViewController {
         .distribution(.fill)
         .axis(.vertical)
         .spacing(8)
+    
+    // MARK: - Initializer
+    init(byDistance: (() -> Void)? = nil, byServer: (() -> Void)? = nil) {
+        self.byDistance = byDistance
+        self.byServer = byServer
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - ViewController lifecycle
     override func viewDidAppear(_ animated: Bool) {
@@ -98,19 +113,19 @@ final class BottomActionSheet: BaseViewController {
     }
     
     // MARK: - @objc private handlers
-    @objc func distanceBtnDidTap() {
-        performCloseAnimation {
-            print("By distance button tapped")
+    @objc private  func distanceBtnDidTap() {
+        performCloseAnimation { [weak self] in
+            self?.byDistance?()
         }
     }
     
-    @objc func alphabetBtnDidTap() {
-        performCloseAnimation {
-            print("Alphabet button tapped")
+    @objc private func alphabetBtnDidTap() {
+        performCloseAnimation { [weak self] in
+            self?.byServer?()
         }
     }
     
-    @objc func cancelBtnDidTap() {
+    @objc private func cancelBtnDidTap() {
         performCloseAnimation()
     }
     

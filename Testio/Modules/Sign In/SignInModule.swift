@@ -9,14 +9,18 @@ import Foundation
 
 final class SignInModule: BaseModule {
     
+    // MARK: - Private instances
     private let viewModel: SignInViewModel
     private let view: SignInViewController
     
-    init() {
+    // MARK: - Initializer
+    init(navigator: SignInNavigation) {
         viewModel = SignInViewModel()
+        viewModel.navigator = navigator
         view = SignInViewController(viewModel: viewModel)
     }
     
+    // MARK: - Method for accessing ViewController
     internal func viewController() -> BaseViewController {
         return view
     }

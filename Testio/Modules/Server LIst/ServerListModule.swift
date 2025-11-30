@@ -9,14 +9,18 @@ import Foundation
 
 final class ServerListModule: BaseModule {
     
+    // MARK: - Private instances
     private let viewModel: ServerListViewModel
     private let view: ServerListViewController
     
-    init () {
+    // MARK: - Initialzer
+    init (navigator: ServerListNavigation) {
         viewModel = ServerListViewModel()
+        viewModel.navigator = navigator
         view = ServerListViewController(viewModel: viewModel)
     }
     
+    // MARK: - Method for accessing ViewController
     internal func viewController() -> BaseViewController {
         return view
     }

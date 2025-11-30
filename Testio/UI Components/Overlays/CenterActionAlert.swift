@@ -15,7 +15,9 @@ final class CenterActionAlert: BaseViewController {
         .alpha(0)
     
     private let blurView: UIVisualEffectView = {
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+        let view = UIVisualEffectView(
+            effect: UIBlurEffect(style: .systemMaterialLight)
+        )
         view.layer.cornerRadius = 0
         view.clipsToBounds = true
         view.isUserInteractionEnabled = false
@@ -42,7 +44,7 @@ final class CenterActionAlert: BaseViewController {
         title: "OK",
         font: R.font.sfProTextRegular(size: 18),
         color: R.color.systemBlue(),
-        style: .systemThinMaterial)
+        style: .systemMaterialLight)
         .withUpdatedHeight(44)
     
     private lazy var messageColumn = UIStackView()
@@ -58,8 +60,8 @@ final class CenterActionAlert: BaseViewController {
         .distribution(.fill)
         .axis(.vertical)
         .roundedCorners(.allCorners, radius: 14)
+        .background(color: R.color.softPearl())
         .clipsToBounds(true)
-        
     
     // MARK: - ViewController lifecycle
     override func viewDidAppear(_ animated: Bool) {

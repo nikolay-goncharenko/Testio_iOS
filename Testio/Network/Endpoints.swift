@@ -26,7 +26,7 @@ enum Endpoints {
         }
     }
     
-    var urlRequest: String {
-        "\(NetworkConfig.baseURL)\(NetworkConfig.apiVersion)\(path)"
+    var url: String {
+        return "\(NetworkConfig.baseURL)\(NetworkConfig.apiVersion)\(path)"
     }
 }

@@ -36,6 +36,7 @@ final class SignInViewController: BaseViewController {
     
     private let bottomImg = UIImageView(image: R.image.loginBackgroundImg())
     
+    // MARK: - SignIn column
     private lazy var signInColumn = UIStackView()
         .addArrangedSubviews([usernameFld, passwordFld, signInBtn])
         .distribution(.fill)
@@ -60,7 +61,6 @@ final class SignInViewController: BaseViewController {
         keyboardObserver.startObserving { [weak self] keyboardHeight in
             
             if let self, !self.isKeyboardVisible {
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     self.isKeyboardVisible = true
                     
@@ -147,12 +147,20 @@ final class SignInViewController: BaseViewController {
     // MARK: - Binding
     override func bindViewModel() {
         viewModel.onSuccess = { [weak self] in
-            print("onSuccess")
+            self?.viewModel.navigator?.openServerListScreen()
         }
         
-        viewModel.onError = { [weak self] in
-            print("onError")
+        viewModel.onError = { [weak self] error in
+            self?.viewModel.navigator?.showCenterActionAlert()
         }
+    }
+    
+    // MARK: - AuthRequestDTO creation
+    private func createAuthRequestDTO() -> AuthRequestDTO {
+        return AuthRequestDTO(
+            username: usernameFld.getText,
+            password: passwordFld.getText
+        )
     }
     
     // MARK: - @objc private handlers
@@ -161,7 +169,8 @@ final class SignInViewController: BaseViewController {
     }
     
     @objc private func signInAction() {
-        print("SignIn button tapped")
+        let dto = createAuthRequestDTO()
+        viewModel.signIn(dto: dto)
     }
 }
 

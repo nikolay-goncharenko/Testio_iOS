@@ -12,6 +12,9 @@ final class ServerListViewController: BaseViewController {
     // MARK: - ViewModel instance
     private let viewModel: ServerListViewModel
     
+    // MARK: - Server list storage
+    private var serverList: [ServerListObject] = []
+    
     // MARK: - Components definition
     private let navigationHeaderView = NavigationHeaderView()
     
@@ -83,28 +86,36 @@ final class ServerListViewController: BaseViewController {
     
     override func setupHandlers() {
         navigationHeaderView.filterBtnDidTouch = { [weak self] in
-            guard let self else { return }
-            
-            let vc = BottomActionSheet()
-            vc.modalPresentationStyle = .overCurrentContext
-            present(vc, animated: false, completion: nil)
+            if let self {
+                viewModel.navigator?.showBottomActionSheet {
+                    self.viewModel.fetchServersSortedByDistance()
+                } byServer: {
+                    self.viewModel.fetchServersSortedByName()
+                }
+            }
         }
         
         navigationHeaderView.signOutBtnDidTouch = { [weak self] in
-            guard let self else { return }
-            
-            let vc = CenterActionAlert()
-            vc.modalPresentationStyle = .overCurrentContext
-            present(vc, animated: false, completion: nil)
+            if let self {
+                viewModel.navigator?.openSignInScreen()
+                viewModel.clearAuthToken()
+            }
         }
     }
     
     // MARK: - Binding
     override func bindViewModel() {
-        
+        viewModel.fetchServerList()
+        viewModel.onFetched = { [weak self] list in
+            if let self {
+                serverList = list
+                collectionView.reloadData()
+            }
+        }
     }
 }
 
+// MARK: - ServerListViewController extensions
 extension ServerListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -119,15 +130,16 @@ extension ServerListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return serverList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(indexPath) as ServersListCell
+        let server = serverList[indexPath.item]
         
-//        cell.setServerValue(<#T##value: String##String#>)
-//        cell.setDistanceValue(<#T##value: String##String#>)
+        cell.setServerValue(server.name)
+        cell.setDistanceValue("\(server.distance) km")
         
         return cell
     }
