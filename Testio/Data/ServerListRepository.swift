@@ -5,7 +5,16 @@
 //  Created by Nick Goncharenko on 30.11.2025.
 //
 
-final class ServerListRepository {
+protocol ServerListRepositoryProtocol {
+    func getSortedServerList(
+        by sort: ServerListRepository.ServerListSort,
+        completion: @escaping ([ServerListObject]) -> Void
+    )
+    
+    func clearCache()
+}
+
+final class ServerListRepository: ServerListRepositoryProtocol {
     
     // MARK: - Server list sort options
     enum ServerListSort {
@@ -15,8 +24,16 @@ final class ServerListRepository {
     }
     
     // MARK: - Private instances
-    private let storage = ServerListStorage()
-    private let service = ServerListService()
+    private var service: ServerListServiceProtocol
+    private var storage: ServerListStorageProtocol
+    
+    init(
+        service: ServerListServiceProtocol = ServerListService(),
+        storage: ServerListStorageProtocol = ServerListStorage()
+    ) {
+        self.service = service
+        self.storage = storage
+    }
     
     // MARK: - Internal handlers
     internal func getSortedServerList(

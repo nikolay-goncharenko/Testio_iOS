@@ -14,6 +14,16 @@
 		CC76F6CF2ED78ED6004462D3 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC76F6CC2ED78E4B004462D3 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CC9232162EDD0EA100B8E2D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC76F58A2ED4E228004462D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC76F5912ED4E228004462D3;
+			remoteInfo = Testio;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		CC76F6D02ED78ED6004462D3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -30,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		CC76F5922ED4E228004462D3 /* Testio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC9232122EDD0EA100B8E2D2 /* TestioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -51,6 +62,11 @@
 			path = Testio;
 			sourceTree = "<group>";
 		};
+		CC9232132EDD0EA100B8E2D2 /* TestioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TestioTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC92320F2EDD0EA100B8E2D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -72,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				CC76F5942ED4E228004462D3 /* Testio */,
+				CC9232132EDD0EA100B8E2D2 /* TestioTests */,
 				CC76F5932ED4E228004462D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CC76F5922ED4E228004462D3 /* Testio.app */,
+				CC9232122EDD0EA100B8E2D2 /* TestioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +140,29 @@
 			productReference = CC76F5922ED4E228004462D3 /* Testio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CC9232112EDD0EA100B8E2D2 /* TestioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC92321A2EDD0EA100B8E2D2 /* Build configuration list for PBXNativeTarget "TestioTests" */;
+			buildPhases = (
+				CC92320E2EDD0EA100B8E2D2 /* Sources */,
+				CC92320F2EDD0EA100B8E2D2 /* Frameworks */,
+				CC9232102EDD0EA100B8E2D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC9232172EDD0EA100B8E2D2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CC9232132EDD0EA100B8E2D2 /* TestioTests */,
+			);
+			name = TestioTests;
+			packageProductDependencies = (
+			);
+			productName = TestioTests;
+			productReference = CC9232122EDD0EA100B8E2D2 /* TestioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -127,6 +175,10 @@
 				TargetAttributes = {
 					CC76F5912ED4E228004462D3 = {
 						CreatedOnToolsVersion = 26.1.1;
+					};
+					CC9232112EDD0EA100B8E2D2 = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = CC76F5912ED4E228004462D3;
 					};
 				};
 			};
@@ -151,12 +203,20 @@
 			projectRoot = "";
 			targets = (
 				CC76F5912ED4E228004462D3 /* Testio */,
+				CC9232112EDD0EA100B8E2D2 /* TestioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CC76F5902ED4E228004462D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC9232102EDD0EA100B8E2D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,12 +233,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC92320E2EDD0EA100B8E2D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		CC76F62D2ED50497004462D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = CC76F62C2ED50497004462D3 /* RswiftGenerateInternalResources */;
+		};
+		CC9232172EDD0EA100B8E2D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC76F5912ED4E228004462D3 /* Testio */;
+			targetProxy = CC9232162EDD0EA100B8E2D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -368,6 +440,48 @@
 			};
 			name = Release;
 		};
+		CC9232182EDD0EA100B8E2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ios.TestioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Testio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Testio";
+			};
+			name = Debug;
+		};
+		CC9232192EDD0EA100B8E2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ios.TestioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Testio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Testio";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -385,6 +499,15 @@
 			buildConfigurations = (
 				CC76F5A62ED4E22A004462D3 /* Debug */,
 				CC76F5A72ED4E22A004462D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC92321A2EDD0EA100B8E2D2 /* Build configuration list for PBXNativeTarget "TestioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC9232182EDD0EA100B8E2D2 /* Debug */,
+				CC9232192EDD0EA100B8E2D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

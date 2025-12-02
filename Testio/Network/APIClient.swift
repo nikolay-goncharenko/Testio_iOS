@@ -8,7 +8,25 @@
 import Foundation
 import Alamofire
 
-final class APIClient {
+protocol APIClientProtocol {
+    
+    func get<T: Codable>(
+        _ url: String,
+        method: HTTPMethod,
+        headers: HTTPHeaders?,
+        completion: @escaping (Result<T, Error>) -> Void
+    )
+    
+    func post<T: Codable, Body: Codable>(
+        _ url: String,
+        method: HTTPMethod,
+        body: Body?,
+        headers: HTTPHeaders?,
+        completion: @escaping (Result<T, Error>) -> Void
+    )
+}
+
+final class APIClient: APIClientProtocol {
     
     // MARK: - Singleton
     static let shared = APIClient()

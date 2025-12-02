@@ -16,8 +16,13 @@ final class SignInViewModel {
     internal var onSuccess: (() -> Void)?
     internal var onError: ((Error) -> Void)?
     
-    // MARK: - Authorization service instance
-    private let authService = AuthService()
+    // MARK: - Authorization service dependency
+    private var authService: AuthServiceProtocol
+    
+    // MARK: - Initializer
+    init(authService: AuthServiceProtocol = AuthService()) {
+        self.authService = authService
+    }
     
     // MARK: - SignIn handler
     internal func signIn(dto: AuthRequestDTO) {
