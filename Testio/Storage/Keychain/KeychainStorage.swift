@@ -8,7 +8,14 @@
 import Foundation
 import Security
 
-final class KeychainStorage {
+protocol KeychainStorageProtocol {
+    
+    func save(_ value: String, key: String)
+    func get(_ key: String) -> String?
+    func delete(_ key: String)
+}
+
+final class KeychainStorage: KeychainStorageProtocol {
     
     internal func save(_ value: String, key: String) {
         let data = value.data(using: .utf8)!

@@ -18,7 +18,7 @@ extension AppCoordinator: ServerListNavigation {
     
     func openSignInScreen() {
         let module = SignInModule(navigator: self)
-        router.openAsRoot(module: module)
+        router.openAsRoot(module: module, animated: true)
     }
     
     func showBottomActionSheet(byDistance: (() -> Void)? = nil, byServer: (() -> Void)? = nil) {
@@ -28,7 +28,8 @@ extension AppCoordinator: ServerListNavigation {
                 byServer: byServer
             ),
             style: .overCurrentContext,
-            animated: false
+            animated: false,
+            completion: nil
         )
     }
 }

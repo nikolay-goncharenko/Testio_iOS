@@ -16,8 +16,17 @@ final class ServerListViewModel {
     internal var onFetched: (([ServerListObject]) -> Void)?
     
     // MARK: - Repository & Keychain instances
-    private let repository = ServerListRepository()
-    private let keychain = KeychainStorage()
+    private var repository: ServerListRepositoryProtocol
+    private var keychain: KeychainStorageProtocol
+    
+    // MARK: - Initializer
+    init(
+        repository: ServerListRepositoryProtocol = ServerListRepository(),
+        keychain: KeychainStorageProtocol = KeychainStorage()
+    ) {
+        self.repository = repository
+        self.keychain = keychain
+    }
     
     // MARK: - Fetching server list handlers
     internal func fetchServerList() {

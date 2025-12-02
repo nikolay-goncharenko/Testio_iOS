@@ -18,14 +18,15 @@ extension AppCoordinator: SignInNavigation {
     
     func openServerListScreen() {
         let module = ServerListModule(navigator: self)
-        router.openAsRoot(module: module)
+        router.openAsRoot(module: module, animated: true)
     }
     
     func showCenterActionAlert() {
         router.openOverlay(
             viewController: CenterActionAlert(),
             style: .overCurrentContext,
-            animated: false
+            animated: false,
+            completion: nil
         )
     }
 }

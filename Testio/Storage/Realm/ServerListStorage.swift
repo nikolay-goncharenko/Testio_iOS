@@ -7,7 +7,13 @@
 
 import RealmSwift
 
-final class ServerListStorage {
+protocol ServerListStorageProtocol {
+    func saveServerList(_ serverList: [ServerListResponseDTO])
+    func fetchServerList() -> [ServerListObject]
+    func clearServerList()
+}
+
+final class ServerListStorage: ServerListStorageProtocol {
     
     private let realm = try! Realm()
     

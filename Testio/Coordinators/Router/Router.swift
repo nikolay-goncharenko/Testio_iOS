@@ -7,7 +7,21 @@
 
 import UIKit
 
-final class Router {
+protocol RouterProtocol {
+    
+    func open(module: BaseModule, completion: (() -> Void)?)
+    func openAsRoot(module: BaseModule, animated: Bool)
+    
+    func closeModule(animated: Bool)
+    func closeToRootModule(animated: Bool, completion: (() -> Void)?)
+    
+    func openOverlay(
+        viewController: BaseViewController, style: UIModalPresentationStyle,
+        animated: Bool, completion: (() -> Void)?
+    )
+}
+
+final class Router: RouterProtocol {
     
     // MARK: - Reference to UINavigationController
     private weak var navigationController: UINavigationController?
@@ -52,12 +66,6 @@ final class Router {
     ) {
         viewController.modalPresentationStyle = style
         navigationController?.present(viewController, animated: animated) {
-            completion?()
-        }
-    }
-    
-    internal func closeModalModule(animated: Bool = true, completion: (() -> Void)? = nil) {
-        navigationController?.dismiss(animated: animated) {
             completion?()
         }
     }

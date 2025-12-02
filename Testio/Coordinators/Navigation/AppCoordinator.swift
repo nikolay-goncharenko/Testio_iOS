@@ -9,23 +9,27 @@ import UIKit
 
 final class AppCoordinator {
     
-    // MARK: - Router instance
-    internal let router: Router
+    // MARK: - Router & Keychain
+    internal var router: RouterProtocol
+    internal var keychain: KeychainStorageProtocol
     
     // MARK: - initializer
-    init(navigationController: UINavigationController) {
-        self.router = Router(navigationController: navigationController)
+    init(
+        navigationController: UINavigationController,
+        router: RouterProtocol? = nil,
+        keychain: KeychainStorageProtocol = KeychainStorage()
+    ) {
+        self.router = router ?? Router(navigationController: navigationController)
+        self.keychain = keychain
         navigationController.navigationBar.isHidden = true
     }
     
     // MARK: - Starting method
     internal func start() {
-        let keychain = KeychainStorage()
-        
         if keychain.get(KeychainConfig.tokenKey) != nil {
-            router.openAsRoot(module: ServerListModule(navigator: self))
+            router.openAsRoot(module: ServerListModule(navigator: self), animated: true)
         } else {
-            router.openAsRoot(module: SignInModule(navigator: self))
+            router.openAsRoot(module: SignInModule(navigator: self), animated: true)
         }
     }
 }
